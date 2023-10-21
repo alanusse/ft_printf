@@ -6,7 +6,7 @@
 #    By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 22:08:14 by aglanuss          #+#    #+#              #
-#    Updated: 2023/10/20 22:55:24 by aglanuss         ###   ########.fr        #
+#    Updated: 2023/10/21 20:04:00 by aglanuss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RM = rm -rf
 
 INCLUDE = ft_printf.h
 
-SRC = ft_printf.c
+SRC = ft_printf.c ft_putchar.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
