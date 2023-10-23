@@ -6,52 +6,68 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:13:42 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/21 20:04:14 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/23 02:13:59 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_conversion(char c)
+t_print	*initialize_tab(t_print *tab)
+{
+	tab->length = 0;
+	return (tab);
+}
+
+int	print_conversion(t_print *tab, char c)
 {
 	if (c == '%')
 		return (ft_putchar('%'));
 	else if (c == 'c')
-		return (ft_putchar(c)); // todo: implement
+		return (ft_putchar(va_arg(tab->args, int)));
 	else if (c == 's')
-		return (ft_printf("{string}"));
+		return (ft_putstr(va_arg(tab->args, char*)));
+	else if (c == 'i' || c == 'd')
+		return (ft_putnbr(va_arg(tab->args, int)));
+	else if (c == 'p')
+		return (ft_putnbr(va_arg(tab->args, unsigned long)));
 	else
 		return (0);
 }
 
 int	ft_printf(char const *format, ...)
 {
-	va_list	args;
+	t_print	*tab;
 	size_t	i;
-	size_t	words_count;
+	size_t	ret;
 
+	tab = (t_print*)malloc(sizeof(t_print));
+	if (!tab)
+		return (-1);
+	tab = initialize_tab(tab);
+	va_start(tab->args, format);
 	i = -1;
-	words_count = 0;
-	va_start(args, format);
 	while (format[++i])
 	{
 		if (format[i] == '%')
-			words_count += print_conversion(format[++i]);
+			tab->length += print_conversion(tab, format[++i]);
 		else
-			words_count += ft_putchar(format[i]);
+			tab->length += ft_putchar(format[i]);
 	}
-	return (words_count);
+	va_end(tab->args);
+	ret = tab->length;
+	free(tab);
+	return (ret);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main()
-{
-	int count;
+// int main()
+// {
+// 	int count;
 
-	// count = ft_printf("hola que tal %s\n", "-esto es un string-");
-	count = ft_printf("hola que tal %c\n", 'c');
+// 	// count = ft_printf("hola que tal %s\n", "-esto es un string-");
+// 	count = ft_printf("NULL %s NULL\n", NULL);
 
-	printf("\ncount: %i", count);
-	return (1);
-}
+// 	printf("\ncount: %i", count);
+// 	return (1);
+// }

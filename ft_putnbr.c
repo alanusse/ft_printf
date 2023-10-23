@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 22:21:53 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/23 02:17:32 by aglanuss         ###   ########.fr       */
+/*   Created: 2023/10/22 23:06:02 by aglanuss          #+#    #+#             */
+/*   Updated: 2023/10/23 02:21:52 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+#include "ft_printf.h"
 
-typedef struct s_print
+int ft_putnbr(int nb)
 {
-	va_list	args;
-	size_t	length;
-}					t_print;
+  size_t  ret;
 
-int		ft_printf(char const *format, ...);
-int		ft_putchar(char c);
-int		ft_putstr(char *str);
-int		ft_putnbr(int nb);
-
-#endif
+  ret = 0;
+  if (nb == -2147483648)
+    return (ft_putstr("-2147483648"));
+  if (nb < 0)
+  {
+    ret += ft_putchar('-');
+    ret += ft_putnbr(nb * -1);
+  }
+  else if (nb > 9)
+  {
+    ret += ft_putnbr(nb / 10);
+    ret += ft_putchar('0' + nb % 10);
+  }
+  else
+    ret += ft_putchar('0' + nb);
+  return (ret);
+}
