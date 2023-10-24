@@ -6,7 +6,7 @@
 #    By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 22:08:14 by aglanuss          #+#    #+#              #
-#    Updated: 2023/10/24 22:19:21 by aglanuss         ###   ########.fr        #
+#    Updated: 2023/10/25 01:38:08 by aglanuss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RM = rm -rf
 
 INCLUDE = ft_printf.h
 
-SRC = ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_putnbr_unsigned.c \
+SRC = ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c \
 			ft_strlen.c ft_puthex.c ft_putptr.c
 OBJ = $(SRC:.c=.o)
 

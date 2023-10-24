@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 23:06:02 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/23 16:21:03 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/25 01:37:56 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,23 @@ int ft_putnbr(int nb)
   else if (nb > 9)
   {
     ret += ft_putnbr(nb / 10);
+    ret += ft_putchar('0' + nb % 10);
+  }
+  else
+    ret += ft_putchar('0' + nb);
+  return (ret);
+}
+
+int ft_putnbr_unsigned(unsigned int nb)
+{
+  size_t  ret;
+
+  ret = 0;
+  if (nb == 0)
+    return (ft_putnbr(0));
+  if (nb > 9)
+  {
+    ret += ft_putnbr_unsigned(nb / 10);
     ret += ft_putchar('0' + nb % 10);
   }
   else
