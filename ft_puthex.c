@@ -6,13 +6,13 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 21:33:38 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/24 21:57:26 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/24 22:08:21 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_puthex(char *format, int nb)
+int ft_puthex(char *format, unsigned int nb)
 {
   int ret;
 

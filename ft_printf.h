@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:21:53 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/24 21:58:00 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/24 22:08:29 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_putstr(char *str);
 int		ft_putnbr(int nb);
 int		ft_putnbr_unsigned(unsigned int nb);
 int		ft_strlen(char *str);
-int		ft_puthex(char *format, int nb);
+int		ft_puthex(char *format, unsigned int nb);
 int 	ft_putptr(void *ptr);
 
 #endif
