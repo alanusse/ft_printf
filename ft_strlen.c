@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 22:21:53 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/24 21:49:55 by aglanuss         ###   ########.fr       */
+/*   Created: 2023/10/24 21:46:52 by aglanuss          #+#    #+#             */
+/*   Updated: 2023/10/24 21:48:26 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+#include "ft_printf.h"
 
-typedef struct s_print
+int ft_strlen(char *str)
 {
-	va_list	args;
-	size_t	length;
-}					t_print;
+  size_t  size;
 
-int		ft_printf(char const *format, ...);
-int		ft_putchar(char c);
-int		ft_putstr(char *str);
-int		ft_putnbr(int nb);
-int		ft_putnbr_unsigned(unsigned int nb);
-int		ft_strlen(char *str);
-int 	ft_putptr(void *ptr);
-
-#endif
+  size = -1;
+  while(str[++size])
+    size++;
+  return (size);
+}
