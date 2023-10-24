@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:13:42 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/24 22:11:16 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/25 01:33:49 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	print_conversion(t_print *tab, char c)
 		return (ft_puthex("0123456789abcdef", va_arg(tab->args, unsigned int)));
 	if (c == 'X')
 		return (ft_puthex("0123456789ABCDEF", va_arg(tab->args, unsigned int)));
-	// if (c == 'p')
-	// 	return (ft_putstr(va_arg(tab->args, void*)));
+	if (c == 'p')
+		return (ft_putptr(va_arg(tab->args, unsigned long)));
 	return (0);
 }
 
@@ -79,9 +79,10 @@ int	ft_printf(char const *format, ...)
 
 // int main()
 // {
-// 	int str = -34112;
+// 	char str[] = "str";
+// 	int num;
 
-// 	printf("%x\n", str);
-// 	ft_printf("%x", str);
+// 	num = ft_printf("%p", 18);
+// 	printf("\n%i\n", num);
 // 	return (1);
 // }
