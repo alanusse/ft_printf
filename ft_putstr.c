@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 22:58:38 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/25 22:50:11 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:29:56 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ int	ft_putstr(t_print *tab, char *str)
 		else
 			return (0);
 	}
+	return (1);
 }

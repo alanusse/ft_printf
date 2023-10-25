@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:21:53 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/25 22:50:52 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:21:06 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_print
 int		ft_printf(char const *format, ...);
 int		ft_putchar(t_print *tab, char c);
 int		ft_putstr(t_print *tab, char *str);
-void	ft_putnbr(t_print *tab, int nb);
-// int		ft_putnbr_unsigned(unsigned int nb);
+int		ft_putnbr(t_print *tab, int nb);
+int		ft_putnbr_unsigned(t_print *tab, unsigned int nb);
 // int		ft_strlen(char *str);
 // int		ft_puthex(char *format, unsigned int nb);
 // int		ft_puthex_long(char *format, unsigned long nb);

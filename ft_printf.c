@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:13:42 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/25 18:49:04 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:28:30 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,24 @@ t_print	*initialize_tab(t_print *tab)
  * Esta función va a retornar el número de carácteres impresos.
  * 
 */
-int	print_conversion(t_print *tab, char c)
+void	print_conversion(t_print *tab, char c)
 {
 	if (c == '%')
-		return (ft_putchar('%'));
+		ft_putchar(tab, '%');
 	if (c == 'c')
-		return (ft_putchar(va_arg(tab->args, int)));
+		ft_putchar(tab, va_arg(tab->args, int));
 	if (c == 's')
-		return (ft_putstr(va_arg(tab->args, char*)));
+		ft_putstr(tab, va_arg(tab->args, char *));
 	if (c == 'i' || c == 'd')
-		return (ft_putnbr(va_arg(tab->args, int)));
+		ft_putnbr(tab, va_arg(tab->args, int));
 	if (c == 'u')
-		return (ft_putnbr_unsigned(va_arg(tab->args, unsigned int)));
-	if (c == 'x')
-		return (ft_puthex("0123456789abcdef", va_arg(tab->args, unsigned int)));
-	if (c == 'X')
-		return (ft_puthex("0123456789ABCDEF", va_arg(tab->args, unsigned int)));
-	if (c == 'p')
-		return (ft_putptr(va_arg(tab->args, unsigned long))); 
-	return (0);
+		ft_putnbr_unsigned(tab, va_arg(tab->args, unsigned int));
+	// if (c == 'x')
+	// 	return (ft_puthex("0123456789abcdef", va_arg(tab->args, unsigned int)));
+	// if (c == 'X')
+	// 	return (ft_puthex("0123456789ABCDEF", va_arg(tab->args, unsigned int)));
+	// if (c == 'p')
+	// 	return (ft_putptr(va_arg(tab->args, unsigned long)));
 }
 
 int	ft_printf(char const *format, ...)
@@ -57,20 +56,18 @@ int	ft_printf(char const *format, ...)
 	size_t	i;
 	size_t	ret;
 
-	tab = (t_print*)malloc(sizeof(t_print));
+	tab = (t_print *)malloc(sizeof(t_print));
 	if (!tab)
-		return (-1); // Retorna -1 ya que la función original de printf, retorna -1 si encuentra algún error en el funcionamiento.
+		return (-1);
 	tab = initialize_tab(tab);
-	va_start(tab->args, format); // Inicializamos la va_list con el último parámetro conocido.
+	va_start(tab->args, format);
 	i = -1;
 	while (format[++i] && tab->error == 0)
 	{
 		if (format[i] == '%')
-			tab->length += print_conversion(tab, format[++i]);
-		else if (ft_putchar(format[i]) == 1)
-			tab->length += 1;
+			print_conversion(tab, format[++i]);
 		else
-			tab->error = 1;
+			ft_putchar(tab, format[i]);
 	}
 	va_end(tab->args);
 	if (tab->error)

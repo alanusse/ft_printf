@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 23:33:48 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/25 20:52:27 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:27:18 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /**
  * Print a char.
  * If write fails, sets tab error to 1 and length to -1, and return 0.
+ * 
 */
 int	ft_putchar(t_print *tab, char c)
 {
