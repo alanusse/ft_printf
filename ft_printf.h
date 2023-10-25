@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:21:53 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/25 01:21:20 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/25 02:11:12 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_print
 {
 	va_list	args;
 	size_t	length;
+	int			error;
 }					t_print;
 
 int		ft_printf(char const *format, ...);

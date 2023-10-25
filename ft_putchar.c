@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 23:33:48 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/21 20:04:20 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/25 02:00:08 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int	ft_putchar(char c)
 {
-	return (write(1, &c, 1));
+	if (write(1, &c, 1) != 1)
+		return (-1);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:13:42 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/25 01:33:49 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:49:04 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 t_print	*initialize_tab(t_print *tab)
 {
 	tab->length = 0;
+	tab->error = 0;
 	return (tab);
 }
 
@@ -46,7 +47,7 @@ int	print_conversion(t_print *tab, char c)
 	if (c == 'X')
 		return (ft_puthex("0123456789ABCDEF", va_arg(tab->args, unsigned int)));
 	if (c == 'p')
-		return (ft_putptr(va_arg(tab->args, unsigned long)));
+		return (ft_putptr(va_arg(tab->args, unsigned long))); 
 	return (0);
 }
 
@@ -62,14 +63,18 @@ int	ft_printf(char const *format, ...)
 	tab = initialize_tab(tab);
 	va_start(tab->args, format); // Inicializamos la va_list con el último parámetro conocido.
 	i = -1;
-	while (format[++i])
+	while (format[++i] && tab->error == 0)
 	{
 		if (format[i] == '%')
 			tab->length += print_conversion(tab, format[++i]);
+		else if (ft_putchar(format[i]) == 1)
+			tab->length += 1;
 		else
-			tab->length += ft_putchar(format[i]);
+			tab->error = 1;
 	}
 	va_end(tab->args);
+	if (tab->error)
+		tab->length = -1;
 	ret = tab->length;
 	free(tab);
 	return (ret);
@@ -82,7 +87,7 @@ int	ft_printf(char const *format, ...)
 // 	char str[] = "str";
 // 	int num;
 
-// 	num = ft_printf("%p", 18);
+// 	num = ft_printf("\001\002\007\v\010\f\r\n");
 // 	printf("\n%i\n", num);
 // 	return (1);
 // }
