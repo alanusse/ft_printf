@@ -6,24 +6,26 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 22:58:38 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/23 02:10:08 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:50:11 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putstr(char *str)
+/**
+ * Print a string.
+ * If string passed by argument is null, prints "(null)".
+ * If putchar function fails, set tab error to 1, length to -1 and return 0.
+*/
+int	ft_putstr(t_print *tab, char *str)
 {
-  size_t  ret;
-
-  if (!str)
-    str = "(null)";
-  ret = 0;
-  while(*str)
-  {
-    write(1, str, 1);
-    ret++;
-    str++;
-  }
-  return (ret);
+	if (!str)
+		str = "(null)";
+	while (*str)
+	{
+		if (ft_putchar(tab, *str) == 1)
+			str++;
+		else
+			return (0);
+	}
 }
