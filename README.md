@@ -52,3 +52,62 @@ gcc main.c libftprintf.a -o main.out
 
 // output: Hello world!
 ```
+
+## Use
+
+You can use these conversions in `ft_printf` function.
+
+| Conversion | Description |
+| :---: | --- |
+| `%%` | Print a **%** character |
+| `%c` | Print a character |
+| `%s` | Print a string |
+| `%i` | Print an integer |
+| `%u` | Print an unsigned integer |
+| `%p` | Print a memory address in hexadecimal number |
+| `%x` | Print an hexadecimal number in lowercase |
+| `%X` | Print an hexadecimal number in uppercase |
+
+### Examples
+
+```c
+ft_printf("%%");
+// output: %
+```
+
+```c
+ft_printf("%c", 'z');
+// output: z
+```
+
+```c
+ft_printf("%s", "Hello world!");
+// output: Hello world!
+```
+
+```c
+ft_printf("%i", -100);
+// output: -100
+```
+
+```c
+ft_printf("%u", 4500);
+// output: 4500
+```
+
+```c
+char str[] = "ft_printf";
+
+ft_printf("%p", str);
+// output: 0xffffff
+```
+
+```c
+ft_printf("%x", 1234567);
+// output: 12d687
+```
+
+```c
+ft_printf("%X", 1234567);
+// output: 12D687
+```
