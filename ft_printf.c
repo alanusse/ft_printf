@@ -6,16 +6,14 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:13:42 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/26 11:52:33 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:43:25 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /**
- * 
- * Inicializar la tabla con valores de 0.
- * 
+ * Initialize table with 0 values.
 */
 t_print	*initialize_tab(t_print *tab)
 {
@@ -25,10 +23,7 @@ t_print	*initialize_tab(t_print *tab)
 }
 
 /**
- * 
- * Convertir y printear cada uno de los formats encontrados.
- * Esta función va a retornar el número de carácteres impresos.
- * 
+ * Convert and print the found format.
 */
 void	print_conversion(t_print *tab, char c)
 {
@@ -76,15 +71,3 @@ int	ft_printf(char const *format, ...)
 	free(tab);
 	return (ret);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char str[] = "str";
-// 	int num;
-
-// 	num = ft_printf("\001\002\007\v\010\f\r\n");
-// 	printf("\n%i\n", num);
-// 	return (1);
-// }
