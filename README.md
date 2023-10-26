@@ -1,3 +1,9 @@
+<p align="left">
+  <img src="https://img.shields.io/badge/42-Barcelona-black" />
+  <img src="https://img.shields.io/github/license/alanusse/ft_printf" />
+  <img src="https://img.shields.io/github/languages/code-size/alanusse/ft_printf" />
+</p>
+
 # ft_printf
 
 `ft_printf` is a remake of the original `printf` function of C.
