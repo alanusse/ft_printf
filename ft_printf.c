@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:13:42 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/26 13:43:25 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:51:57 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 /**
  * Initialize table with 0 values.
 */
-t_print	*initialize_tab(t_print *tab)
+void	initialize_tab(t_print *tab)
 {
 	tab->length = 0;
 	tab->error = 0;
-	return (tab);
 }
 
 /**
@@ -54,10 +53,10 @@ int	ft_printf(char const *format, ...)
 	tab = (t_print *)malloc(sizeof(t_print));
 	if (!tab)
 		return (-1);
-	tab = initialize_tab(tab);
+	initialize_tab(tab);
 	va_start(tab->args, format);
 	i = -1;
-	while (format[++i] && tab->error == 0)
+	while (format[++i] && !tab->error)
 	{
 		if (format[i] == '%')
 			print_conversion(tab, format[++i]);

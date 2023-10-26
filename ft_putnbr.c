@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 23:06:02 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/26 13:18:34 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:28:37 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * Print an int number.
  * 
- * If putchar or putstr function fails, set tab error to 1 and length to -1.
+ * If putchar or putstr function fails, set tab error to 1.
 */
 void	ft_putnbr(t_print *tab, int nb)
 {
@@ -49,7 +49,7 @@ void	ft_putnbr(t_print *tab, int nb)
 /**
  * Print an unsigned int number.
  * 
- * If putchar or putnbr function fails, set tab error to 1 and length to -1.
+ * If putchar or putnbr function fails, set tab error to 1.
 */
 void	ft_putnbr_unsigned(t_print *tab, unsigned int nb)
 {

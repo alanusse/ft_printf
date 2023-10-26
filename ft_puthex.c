@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 21:33:38 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/26 13:17:41 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:48:20 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,14 @@
 /**
  * Convert an unsigned int to an hexadecimal number and print it.
  * 
- * If format not have 16 characters, set tab error to 1 and tab size to -1.
- * If putchar function fail, set tab error to 1 and tab size to -1;
+ * If format not have 16 characters, set tab error to 1.
+ * If putchar function fail, set tab error to 1.
 */
 void	ft_puthex(t_print *tab, char *format, unsigned int nb)
 {
 	if (ft_strlen(format) != 16)
 	{
 		tab->error = 1;
-		tab->length = -1;
 		return ;
 	}
 	if (nb >= 0 && nb <= 15)
@@ -44,15 +43,14 @@ void	ft_puthex(t_print *tab, char *format, unsigned int nb)
 /**
  * Convert an unsigned long to an hexadecimal number and print it.
  * 
- * If format not have 16 characters, set tab error to 1 and tab size to -1.
- * If putchar function fail, set tab error to 1 and tab size to -1;
+ * If format not have 16 characters, set tab error to 1.
+ * If putchar function fail, set tab error to 1.
 */
 void	ft_puthex_long(t_print *tab, char *format, unsigned long nb)
 {
 	if (ft_strlen(format) != 16)
 	{
 		tab->error = 1;
-		tab->length = -1;
 		return ;
 	}
 	if (nb >= 0 && nb <= 15)
