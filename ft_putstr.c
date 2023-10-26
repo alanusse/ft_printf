@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 22:58:38 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/26 17:36:05 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:38:02 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	ft_putstr(t_print *tab, char *str)
 	while (*str && !tab->error)
 	{
 		ft_putchar(tab, *str);
-		if (tab->error)
-			return ;
 		str++;
 	}
 }
