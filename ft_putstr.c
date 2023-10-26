@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 22:58:38 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/26 11:29:56 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:18:48 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 /**
  * Print a string.
+ * 
  * If string passed by argument is null, prints "(null)".
  * If write function fails, set tab error to 1 and length to -1.
  * Else, tab length will be n + 1;
