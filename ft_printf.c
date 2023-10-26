@@ -6,7 +6,7 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:13:42 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/25 23:28:30 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:52:33 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ void	print_conversion(t_print *tab, char c)
 		ft_putnbr(tab, va_arg(tab->args, int));
 	if (c == 'u')
 		ft_putnbr_unsigned(tab, va_arg(tab->args, unsigned int));
-	// if (c == 'x')
-	// 	return (ft_puthex("0123456789abcdef", va_arg(tab->args, unsigned int)));
-	// if (c == 'X')
-	// 	return (ft_puthex("0123456789ABCDEF", va_arg(tab->args, unsigned int)));
-	// if (c == 'p')
-	// 	return (ft_putptr(va_arg(tab->args, unsigned long)));
+	if (c == 'p')
+		ft_putptr(tab, va_arg(tab->args, unsigned long));
+	if (c == 'x')
+		ft_puthex(tab, "0123456789abcdef", va_arg(tab->args, unsigned int));
+	if (c == 'X')
+		ft_puthex(tab, "0123456789ABCDEF", va_arg(tab->args, unsigned int));
 }
 
 int	ft_printf(char const *format, ...)

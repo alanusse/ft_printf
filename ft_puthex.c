@@ -6,42 +6,64 @@
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 21:33:38 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/25 01:35:54 by aglanuss         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:15:15 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_puthex(char *format, unsigned int nb)
+/**
+ * Convert an unsigned int to an hexadecimal number and print it.
+ * If format not have 16 characters, set tab error to 1 and tab size to -1.
+ * If putchar function fail, set tab error to 1 and tab size to -1;
+*/
+void	ft_puthex(t_print *tab, char *format, unsigned int nb)
 {
-  int ret;
-
-  if (ft_strlen(format) != 16)
-    return (-1);
-  ret = 0;
-  if (nb >= 0 && nb <= 15)
-    return (ft_putchar(format[nb]));
-  else
-  {
-    ret += ft_puthex(format, (nb / 16));
-    ret += ft_putchar(format[nb % 16]);
-  }
-  return (ret);
+	if (ft_strlen(format) != 16)
+	{
+		tab->error = 1;
+		tab->length = -1;
+		return ;
+	}
+	if (nb >= 0 && nb <= 15)
+	{
+		ft_putchar(tab, format[nb]);
+		if (tab->error)
+			return ;
+	}
+	else
+	{
+		ft_puthex(tab, format, (nb / 16));
+		if (tab->error)
+			return ;
+		ft_putchar(tab, format[nb % 16]);
+	}
 }
 
-int ft_puthex_long(char *format, unsigned long nb)
+/**
+ * Convert an unsigned long to an hexadecimal number and print it.
+ * If format not have 16 characters, set tab error to 1 and tab size to -1.
+ * If putchar function fail, set tab error to 1 and tab size to -1;
+*/
+void	ft_puthex_long(t_print *tab, char *format, unsigned long nb)
 {
-  int ret;
-
-  if (ft_strlen(format) != 16)
-    return (-1);
-  ret = 0;
-  if (nb >= 0 && nb <= 15)
-    return (ft_putchar(format[nb]));
-  else
-  {
-    ret += ft_puthex_long(format, (nb / 16));
-    ret += ft_putchar(format[nb % 16]);
-  }
-  return (ret);
+	if (ft_strlen(format) != 16)
+	{
+		tab->error = 1;
+		tab->length = -1;
+		return ;
+	}
+	if (nb >= 0 && nb <= 15)
+	{
+		ft_putchar(tab, format[nb]);
+		if (tab->error)
+			return ;
+	}
+	else
+	{
+		ft_puthex_long(tab, format, (nb / 16));
+		if (tab->error)
+			return ;
+		ft_putchar(tab, format[nb % 16]);
+	}
 }
