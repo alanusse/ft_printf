@@ -32,7 +32,7 @@ make && make clean
 3. Use the ft_printf in your code.
 ```c
 // main.c
-#include "ft_printf.h"
+#include "./includes/ft_printf.h"
 
 int main()
 {
