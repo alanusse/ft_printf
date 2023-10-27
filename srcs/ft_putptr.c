@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 21:46:52 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/26 13:19:44 by aglanuss         ###   ########.fr       */
+/*   Created: 2023/10/23 17:50:13 by aglanuss          #+#    #+#             */
+/*   Updated: 2023/10/27 09:57:27 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 /**
- * Count string length.
+ * Print a memory address.
  * 
- * Return the string length.
+ * If putstr or put_hex_long fails, set tab error to 1.
 */
-int	ft_strlen(char *str)
+void	ft_putptr(t_print *tab, unsigned long ptr)
 {
-	size_t	size;
-
-	size = -1;
-	while (str[++size])
-		size++;
-	return (size);
+	ft_putstr(tab, "0x");
+	if (tab->error)
+		return ;
+	ft_puthex_long(tab, "0123456789abcdef", (unsigned long)ptr);
 }

@@ -6,7 +6,7 @@
 #    By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 22:08:14 by aglanuss          #+#    #+#              #
-#    Updated: 2023/10/26 11:37:20 by aglanuss         ###   ########.fr        #
+#    Updated: 2023/10/27 10:06:33 by aglanuss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,18 +19,22 @@ LIB = ar -rcs
 
 RM = rm -rf
 
-INCLUDE = ft_printf.h
+INCLUDES = ft_printf.h
+INCLUDES_DIR = includes
+INCLUDES_TARGETS = $(addprefix $(INCLUDES_DIR)/,$(INCLUDES))
 
-SRC = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putptr.c \
+SRCS = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putptr.c \
 			ft_strlen.c ft_puthex.c
-OBJ = $(SRC:.c=.o)
+SRCS_DIR = srcs
+SRCS_TARGETS = $(addprefix $(SRCS_DIR)/,$(SRCS))
+OBJ = $(SRCS_TARGETS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(INCLUDE)
+$(NAME): $(OBJ) $(INCLUDES_TARGETS)
 	$(LIB) $(NAME) $(OBJ)
 
-%.o: %.c Makefile $(INCLUDE)
+%.o: %.c Makefile $(INCLUDES_TARGETS)
 	$(CC) $(CCFLAGS) -c $< -o $@
 
 clean:
@@ -40,3 +44,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aglanuss <aglanuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 23:33:48 by aglanuss          #+#    #+#             */
-/*   Updated: 2023/10/26 16:58:55 by aglanuss         ###   ########.fr       */
+/*   Created: 2023/10/24 21:46:52 by aglanuss          #+#    #+#             */
+/*   Updated: 2023/10/27 09:57:35 by aglanuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 /**
- * Print a char.
+ * Count string length.
  * 
- * If write fails, sets tab error to 1.
+ * Return the string length.
 */
-void	ft_putchar(t_print *tab, char c)
+int	ft_strlen(char *str)
 {
-	if (write(1, &c, 1) == 1)
-		tab->length += 1;
-	else
-		tab->error = 1;
+	size_t	size;
+
+	size = -1;
+	while (str[++size])
+		size++;
+	return (size);
 }
