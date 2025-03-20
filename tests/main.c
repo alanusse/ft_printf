@@ -27,9 +27,18 @@ void str_test()
   test_base(7, ft_printf("%c%%%s%%", 'c', "str"), printf("%c%%%s%%", 'c', "str"));
 }
 
+void integer_test()
+{
+  test_base(8, ft_printf("%i", 5), printf("%i", 5));
+  test_base(9, ft_printf("%i%%", -920), printf("%i%%", -920));
+  test_base(10, ft_printf("%i%i%i%i%i", 5, 2147483647, 2147483648, -2147483648, -2147483649), printf("%i%i%i%i%i", 5, 2147483647, 2147483648, -2147483648, -2147483649));
+  test_base(11, ft_printf("%i      ", 5.5), printf("%i      ", 5.5));
+}
+
 int main()
 {
   simple_test();
   str_test();
+  integer_test();
   return 0;
 }

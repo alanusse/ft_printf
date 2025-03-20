@@ -6,7 +6,7 @@
 /*   By: agulanus <agulanus@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 12:56:57 by agulanus          #+#    #+#             */
-/*   Updated: 2025/03/20 17:49:17 by agulanus         ###   ########.fr       */
+/*   Updated: 2025/03/20 18:37:48 by agulanus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void print_conversion(t_ft_printf *pf_state, char c)
 		ft_putchar(pf_state, va_arg(pf_state->args, int));
 	if (c == 's')
 		ft_putstr(pf_state, va_arg(pf_state->args, char *));
+	if (c == 'i')
+		ft_putnbr(pf_state, va_arg(pf_state->args, int));
 }
 
 int	ft_printf(const char *format, ...)
