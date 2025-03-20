@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agulanus <agulanus@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 12:49:51 by agulanus          #+#    #+#             */
-/*   Updated: 2025/03/20 17:43:55 by agulanus         ###   ########.fr       */
+/*   Created: 2025/03/20 17:44:21 by agulanus          #+#    #+#             */
+/*   Updated: 2025/03/20 17:46:44 by agulanus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/ft_printf.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include <stdlib.h>
-
-typedef struct s_ft_printf
+void	ft_putstr(t_ft_printf *pf_state, char *str)
 {
-	va_list	args;
-	size_t	length;
-	bool	is_error;
-}							t_ft_printf;
-
-int		ft_printf(const char *format, ...);
-void	ft_putchar(t_ft_printf *pf_state, char c);
-void	ft_putstr(char *str);
-
-#endif
+	while (*str)
+	{
+		ft_putchar(pf_state, *str);
+		str++;
+	}
+}
