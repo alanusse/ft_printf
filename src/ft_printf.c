@@ -6,16 +6,29 @@
 /*   By: agulanus <agulanus@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 12:56:57 by agulanus          #+#    #+#             */
-/*   Updated: 2025/03/20 16:00:17 by agulanus         ###   ########.fr       */
+/*   Updated: 2025/03/20 17:49:17 by agulanus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+/**
+ * Initialize printf_state
+ */
 void	initialize_state(t_ft_printf *state)
 {
 	state->length = 0;
 	state->is_error = false;
+}
+
+void print_conversion(t_ft_printf *pf_state, char c)
+{
+	if (c == '%')
+		ft_putchar(pf_state, '%');
+	if (c == 'c')
+		ft_putchar(pf_state, va_arg(pf_state->args, int));
+	if (c == 's')
+		ft_putstr(pf_state, va_arg(pf_state->args, char *));
 }
 
 int	ft_printf(const char *format, ...)
@@ -31,7 +44,10 @@ int	ft_printf(const char *format, ...)
 	i = -1;
 	while (format[++i] && !pf_state->is_error)
 	{
-		ft_putchar(pf_state, format[i]);
+		if (format[i] == '%')
+			print_conversion(pf_state, format[++i]);
+		else
+			ft_putchar(pf_state, format[i]);
 	}
 	free(pf_state);
 	va_end(pf_state->args);
