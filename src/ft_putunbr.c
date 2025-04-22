@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agulanus <agulanus@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 17:44:21 by agulanus          #+#    #+#             */
-/*   Updated: 2025/04/22 10:27:38 by agulanus         ###   ########.fr       */
+/*   Created: 2025/04/22 11:00:30 by agulanus          #+#    #+#             */
+/*   Updated: 2025/04/22 11:12:35 by agulanus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	ft_putstr(t_ft_printf *pf_state, char *str)
+void	ft_putunbr(t_ft_printf *pf_state, unsigned int nbr)
 {
-	if (!str)
+	if (nbr < 10)
+		ft_putchar(pf_state, '0' + nbr);
+	else
 	{
-		ft_putstr(pf_state, "(null)");
-		return ;
-	}
-	while (*str)
-	{
-		ft_putchar(pf_state, *str);
-		str++;
+		ft_putnbr(pf_state, nbr / 10);
+		ft_putchar(pf_state, nbr % 10);
 	}
 }

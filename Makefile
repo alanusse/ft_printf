@@ -6,7 +6,7 @@
 #    By: agulanus <agulanus@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/20 14:33:09 by agulanus          #+#    #+#              #
-#    Updated: 2025/03/20 18:35:25 by agulanus         ###   ########.fr        #
+#    Updated: 2025/04/22 11:05:21 by agulanus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ LIB = ar -rcs
 
 INCLUDES = includes/ft_printf.h
 
-SRCS = src/ft_printf.c src/ft_putchar.c src/ft_putstr.c src/ft_putnbr.c
+SRCS = src/ft_printf.c src/ft_putchar.c src/ft_putstr.c src/ft_putnbr.c \
+				src/ft_putunbr.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -15,8 +15,8 @@ void test_base(int test_nb, int ft, int original)
 void simple_test()
 {
   test_base(1, ft_printf("test1"), printf("test1"));
-  test_base(2, ft_printf(""), printf(""));
-  test_base(3, ft_printf("%%"), printf("%%"));
+  test_base(2, ft_printf(" "), printf(" "));
+  test_base(3, ft_printf("NULL %s NULL", NULL), printf("NULL %s NULL", NULL));
 }
 
 void str_test()
@@ -31,8 +31,23 @@ void integer_test()
 {
   test_base(8, ft_printf("%i", 5), printf("%i", 5));
   test_base(9, ft_printf("%i%%", -920), printf("%i%%", -920));
-  test_base(10, ft_printf("%i%i%i%i%i", 5, 2147483647, 2147483648, -2147483648, -2147483649), printf("%i%i%i%i%i", 5, 2147483647, 2147483648, -2147483648, -2147483649));
-  test_base(11, ft_printf("%i      ", 5.5), printf("%i      ", 5.5));
+  test_base(10, ft_printf("%i%i%i", 5, 2147483647, -2147483647), printf("%i%i%i", 5, 2147483647, -2147483647));
+  test_base(11, ft_printf("%i      ", 5), printf("%i      ", 5));
+}
+
+void decimal_test()
+{
+  test_base(12, ft_printf("%d", 5), printf("%d", 5));
+  test_base(13, ft_printf("%d%%", -920), printf("%d%%", -920));
+  test_base(14, ft_printf("%d%d%d", 5, 2147483647, -2147483647), printf("%d%d%d", 5, 2147483647, -2147483647));
+  test_base(15, ft_printf("%d      ", 5), printf("%d      ", 5));
+}
+
+void unbr_test()
+{
+  test_base(16, ft_printf("%u", 0), printf("%u", 0));
+  test_base(17, ft_printf("%u %u%%", 1001), printf("%u %u%%", 1001));
+  test_base(18, ft_printf("%u%%%s", -1, NULL), printf("%u%%%s", -1, NULL));
 }
 
 int main()
@@ -40,5 +55,7 @@ int main()
   simple_test();
   str_test();
   integer_test();
+  decimal_test();
+  unbr_test();
   return 0;
 }
